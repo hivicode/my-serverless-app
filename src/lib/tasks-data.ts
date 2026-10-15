@@ -96,3 +96,14 @@ export const INITIAL_TASKS: Task[] = [
     ],
   },
 ]
+
+// Global in-memory storage for mutations
+const globalTasks: Task[] = [...INITIAL_TASKS]
+
+export function getTasks(): Task[] {
+  return globalTasks
+}
+
+export function addTask(newTask: Task): void {
+  globalTasks.unshift(newTask)
+}
